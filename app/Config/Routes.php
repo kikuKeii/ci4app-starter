@@ -34,12 +34,12 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/pages/profile', 'Home::profile');
 $routes->get('/users/table', 'Users::index');
+$routes->get('/users/create', 'Users::create');
 $routes->get('/users/(:segment)', 'Users::detail/$1');
 $routes->get('/pages/login', 'Home::login');
 $routes->get('/pages/register', 'Home::register');
 // $route['(:any)'] = 'pages/view/$1';
 // $route['default_controller'] = 'pages/view';
-$routes->get('/users/form-input', 'Users::formInput');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

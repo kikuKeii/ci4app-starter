@@ -8,7 +8,7 @@ class UsersModel extends Model
 {
     protected $table = 'users';
     protected $useTimestamps = true;
-
+    protected $allowedFields = ['name', 'slug', 'position', 'office', 'age', 'salary'];
     public function getUsers($slug = false)
     {
         if ($slug == false) {

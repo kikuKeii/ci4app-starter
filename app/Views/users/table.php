@@ -1,7 +1,12 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('conten'); ?>
-<a href="/users/form-input" class="btn btn-primary">Tambahkan Data</a>
+<a href="/users/create" class="btn btn-primary">Tambahkan Data</a>
+<?php if (session()->getFlashdata('pesan')) : ?>
+    <div class="alert alert-success" role="alert">
+        <?= session()->getFlashdata('pesan'); ?>
+    </div>
+<?php endif; ?>
 <h3 class="text-dark mb-4 mt-4">Team</h3>
 <div class="card shadow">
     <div class="card-header py-3">
