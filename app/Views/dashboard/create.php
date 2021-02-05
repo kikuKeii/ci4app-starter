@@ -40,6 +40,10 @@
                     <?= $validation->getError('salary'); ?>
                 </div>
             </div>
+            <div class="form-group">
+                <input class="form-control form-control-user" type="text" id="salary" placeholder="Img" name="img" value="<?= old('img'); ?>">
+
+            </div>
             <button class="btn btn-primary btn-block text-white btn-user" type="submit" value="1">Submit Data</button>
             <hr>
 

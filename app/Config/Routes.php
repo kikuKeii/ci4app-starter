@@ -31,13 +31,12 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/pages/profile', 'Home::profile');
-$routes->get('/users/table', 'Users::index');
-$routes->get('/users/create', 'Users::create');
-$routes->get('/users/(:segment)', 'Users::detail/$1');
-$routes->get('/pages/login', 'Home::login');
-$routes->get('/pages/register', 'Home::register');
+$routes->get('/dashboard', 'Home::index');
+$routes->get('/dashboard/profile', 'Home::profile');
+$routes->get('/dashboard/users', 'Users::index');
+$routes->get('/dashboard/create', 'Users::create');
+$routes->delete('/dashboard/users/(:num)', 'Users::delete/$1');
+$routes->get('/dashboard/users/(:any)', 'Users::detail/$1');
 // $route['(:any)'] = 'pages/view/$1';
 // $route['default_controller'] = 'pages/view';
 /**

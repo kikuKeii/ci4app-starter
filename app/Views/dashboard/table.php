@@ -46,7 +46,7 @@
                             <td><?= $u['office']; ?></td>
                             <td><?= $u['age']; ?></td>
                             <!-- <td>Rp. <?= $u['salary']; ?></td> -->
-                            <td><a href="/users/<?= $u['slug']; ?>" class="btn btn-primary">Detail</a></td>
+                            <td><a href="/dashboard/users/<?= $u['slug']; ?>" class="btn btn-primary">Detail</a></td>
 
                         </tr>
                     <?php endforeach; ?>

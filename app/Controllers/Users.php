@@ -22,7 +22,7 @@ class Users extends BaseController
             'user' => $this->usersModel->getUsers()
         ];
         // dd($user);
-        return view('users/table', $data);
+        return view('dashboard/table', $data);
     }
 
     public function detail($slug)
@@ -32,7 +32,7 @@ class Users extends BaseController
             'footer' => 'kikuKeii',
             'user' => $this->usersModel->getUsers($slug)
         ];
-        return view('users/detail', $data);
+        return view('dashboard/detail', $data);
     }
 
     public function create()
@@ -44,7 +44,7 @@ class Users extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        return view('users/create', $data);
+        return view('dashboard/create', $data);
     }
 
     public function save()
@@ -83,20 +83,30 @@ class Users extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/users/create')->withInput()->with('validation', $validation);
+            return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
         }
 
-        $slug = url_title($this->request->getVar('name'), '-', true);
+        // $slug = url_title($this->request->getVar('name'), '-', TRUE);
         $this->usersModel->save([
-            'name' => $this->request->getVar('name'),
-            'sulg' => $slug,
-            'position' => $this->request->getVar('position'),
-            'office' => $this->request->getVar('office'),
-            'age' => $this->request->getVar('age'),
-            'salary' => $this->request->getVar('salary')
+            'name' => $this->request->getPost('name'),
+            'slug' => url_title($this->request->getPost('name'), '-', true),
+            'position' => $this->request->getPost('position'),
+            'office' => $this->request->getPost('office'),
+            'age' => $this->request->getPost('age'),
+            'salary' => $this->request->getPost('salary'),
+            'img' => $this->request->getPost('img')
         ]);
+
         session()->setFlashdata('pesan', 'Data berhasil diSubmit');
-        return redirect()->to('/users');
+
+        return redirect()->to('/dashboard/users');
+        // dd($this->request->getVar(), 'slug');
+    }
+    public function delete($id)
+    {
+        $this->usersModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil di Hapus');
+        return redirect()->to('/dashboard/users');
     }
 
     //------------------

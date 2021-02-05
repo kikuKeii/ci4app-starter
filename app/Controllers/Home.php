@@ -11,7 +11,7 @@ class Home extends BaseController
 			'title' => 'Dashboard | ci4app 	-starter',
 			'footer' => 'kikuKeii'
 		];
-		return view('pages/home', $data);
+		return view('dashboard/home', $data);
 	}
 	public function profile()
 	{
@@ -19,15 +19,15 @@ class Home extends BaseController
 			'title' => 'Dashboard | ci4app-starter',
 			'footer' => 'kikuKeii'
 		];
-		return view('pages/profile', $data);
+		return view('dashboard/profile', $data);
 	}
 	public function login()
 	{
-		return view('pages/login');
+		return view('dashboard/login');
 	}
 	public function register()
 	{
-		return view('pages/register');
+		return view('dashboard/register');
 	}
 
 	//--------------------------------------------------------------------

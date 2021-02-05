@@ -20,8 +20,13 @@
                             <p class="card-text"><b>Office : </b> <?= $user['office']; ?></p>
                             <p class="card-text"><b>Age : </b> <?= $user['age']; ?></p>
                             <p class="card-text"><b>salary : </b> RP. <?= $user['salary']; ?></p>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Hapus</a></a><br><br>
+                            <a href="/dashboard/users/delete/<?= $user['id']; ?>" class="btn btn-warning">Edit</a>
+                            <form action="/dashboard/users/<?= $user['id']; ?>" method="POST" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            <br><br>
                             <a href="/users" class="card-text"><small class="text-muted">Kembali</small></a>
                         </div>
                     </div>
