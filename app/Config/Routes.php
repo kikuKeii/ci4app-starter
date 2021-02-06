@@ -35,6 +35,7 @@ $routes->get('/dashboard', 'Home::index');
 $routes->get('/dashboard/profile', 'Home::profile');
 $routes->get('/dashboard/users', 'Users::index');
 $routes->get('/dashboard/create', 'Users::create');
+$routes->get('/dashboard/edit/(:segment)', 'Users::edit/$1');
 $routes->delete('/dashboard/users/(:num)', 'Users::delete/$1');
 $routes->get('/dashboard/users/(:any)', 'Users::detail/$1');
 // $route['(:any)'] = 'pages/view/$1';
